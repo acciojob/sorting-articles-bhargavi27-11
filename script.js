@@ -19,21 +19,21 @@ function stripArticle(str) {
 	return str.replace(/^(a |an |the )/i, '').trim();
 }
 
-const sortedBands = bands.sort(function(a,b) => {
+bands.sort(function(a,b) {
 	const bandA = stripArticle(a).toLowerCase();
-	const bandb = stripArticle(b).toLowerCase();
+	const bandB = stripArticle(b).toLowerCase();
 	
-	if(bandA > bandb) return -1;
-	if(bandA < bandb) return 1;
+	if(bandA < bandB) return -1;
+	if(bandA > bandB) return 1;
 	return 0;
 });
 
-const bandsList = document.getElementById('bands');
+const ul = document.getElementById('bands');
 
-sortedBands.forEach(function(band) => {
-	const li = document.createElement('li');
+for(var i = 0;i< bands.length;i++){
+	var li = document.createElement('li');
 	li.innerText = band;
-	bandsList.appendChild(li);
+	ul.appendChild(li);
 });
 
 
