@@ -15,22 +15,25 @@ const bands =  [
 	'An Old Dog'
 ];
 
-function strip(bandName) {
-	return bandName.replace(/^(a|an|the)/i,'').trim();
+function stripArticle(name) {
+	return name.replace(/^(a |an |the )/i, '').trim();
 }
 
-const sortedBands = bands.sort((a,b) => {
-	if(strip(a) > strip(b)) return 1;
-	if(strip(a) < strip(b)) return -1;
+bands.sort((a,b) => {
+	const bandA = stripArticle(a);
+	const bandb = stripArticle(b);
+	
+	if(bandA > bandb) return -1;
+	if(bandA < bandb) return 1;
 	return 0;
 });
 
-const bandList = document.getElementById("band");
+const ul = document.getElementById("bands");
 
-sortedBands.forEach((band) => {
+bands.forEach((band) => {
 	const li = document.createElement('li');
 	li.textContent = band;
-	bandList.appendChild(li);
+	ul.appendChild(li);
 });
 
 
