@@ -23,17 +23,21 @@ bands.sort(function(a,b) {
 	const bandA = stripArticle(a).toLowerCase();
 	const bandB = stripArticle(b).toLowerCase();
 	
-	if(bandA < bandB) return -1;
-	if(bandA > bandB) return 1;
+	if(bandA < bandB) {
+		return -1;
+	}
+	if(bandA > bandB) {
+		return 1;
+	}
 	return 0;
 });
 
-const ul = document.getElementById('bands');
+var bandsList = document.getElementById('bands');
 
 for(var i = 0;i< bands.length;i++){
 	var li = document.createElement('li');
-	li.innerText = band;
-	ul.appendChild(li);
+	li.innerText = band[i];
+	bandsList.appendChild(li);
 });
 
 
