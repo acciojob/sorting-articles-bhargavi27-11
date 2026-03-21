@@ -38,7 +38,7 @@ for(var i = 0; i < bands.length; i++){
 	var li = document.createElement('li');
 	li.innerText = bands[i];
 	bandsList.appendChild(li);
-});
+};
 
 
 
