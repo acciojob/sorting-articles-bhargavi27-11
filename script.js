@@ -34,9 +34,9 @@ bands.sort(function(a,b) {
 
 var bandsList = document.getElementById('bands');
 
-for(var i = 0;i< bands.length;i++){
+for(var i = 0; i < bands.length; i++){
 	var li = document.createElement('li');
-	li.innerText = band[i];
+	li.innerText = bands[i];
 	bandsList.appendChild(li);
 });
 
